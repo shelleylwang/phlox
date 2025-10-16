@@ -1,0 +1,14 @@
+# Academic PDF Summarization MCP Server Dependencies
+
+# Core MCP framework
+mcp>=0.9.0
+
+# PDF processing
+PyMuPDF>=1.23.0
+
+# Type hints and utilities (Python 3.8+ compatibility)
+typing-extensions>=4.0.0
+
+# Optional: For future LLM integration
+# openai>=1.0.0
+# anthropic>=0.7.0
