@@ -1,0 +1,55 @@
+convert:
+  cmd: python -m weasel run convert
+  script:
+    - python scripts/convert.py en assets/train_data.jsonl corpus/train.spacy
+    - python scripts/convert.py en assets/test_data.jsonl corpus/dev.spacy
+  deps:
+    - path: assets/train_data.jsonl
+      md5: bf16a182bed132190a9dee65b5cc3d3c
+    - path: assets/test_data.jsonl
+      md5: 8d91514b58b7b2e437e4a7e8c5079fb1
+    - path: scripts/convert.py
+      md5: 35ee9ecddb27d1dbf74d9bc36fb44d0b
+  outs:
+    - path: corpus/train.spacy
+      md5: c8cf1f6c4ab1be21716deabeb020cc45
+    - path: corpus/dev.spacy
+      md5: 69372643e32a4d7b79e599e7dea550a9
+train:
+  cmd: python -m weasel run train
+  script:
+    - python -m spacy train configs/config.cfg --output training/ --paths.train corpus/train.spacy
+      --paths.dev corpus/dev.spacy --nlp.lang en --gpu-id -1
+  deps:
+    - path: configs/config.cfg
+      md5: ff5906657d538c55bab729c6399bcbcf
+    - path: corpus/train.spacy
+      md5: c8cf1f6c4ab1be21716deabeb020cc45
+    - path: corpus/dev.spacy
+      md5: 69372643e32a4d7b79e599e7dea550a9
+  outs:
+    - path: training/model-best
+      md5: e59486a4c80e4f6f87bdbb8ccd9d9f48
+evaluate:
+  cmd: python -m weasel run evaluate
+  script:
+    - python -m spacy evaluate training/model-best corpus/dev.spacy --output training/metrics.json
+  deps:
+    - path: corpus/dev.spacy
+      md5: 69372643e32a4d7b79e599e7dea550a9
+    - path: training/model-best
+      md5: e59486a4c80e4f6f87bdbb8ccd9d9f48
+  outs:
+    - path: training/metrics.json
+      md5: 6ba1da455da11fb77a0d29fda3888adb
+package:
+  cmd: python -m weasel run package
+  script:
+    - python -m spacy package training/model-best packages --name PeerRead_textcat
+      --version 0.0.0 --force
+  deps:
+    - path: training/model-best
+      md5: e59486a4c80e4f6f87bdbb8ccd9d9f48
+  outs:
+    - path: packages/en_PeerRead_textcat-0.0.0/dist/en_PeerRead_textcat-0.0.0.tar.gz
+      md5: null

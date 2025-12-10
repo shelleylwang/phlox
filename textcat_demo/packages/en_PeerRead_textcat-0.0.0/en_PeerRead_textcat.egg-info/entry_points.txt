@@ -1,0 +1,2 @@
+[spacy_models]
+en_PeerRead_textcat = en_PeerRead_textcat
