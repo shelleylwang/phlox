@@ -1,0 +1,38 @@
+| Feature | Description |
+| --- | --- |
+| **Name** | `en_PeerRead_textcat` |
+| **Version** | `0.0.0` |
+| **spaCy** | `>=3.7.5,<3.8.0` |
+| **Default Pipeline** | `textcat` |
+| **Components** | `textcat` |
+| **Vectors** | 0 keys, 0 unique vectors (0 dimensions) |
+| **Sources** | n/a |
+| **License** | n/a |
+| **Author** | [n/a]() |
+
+### Label Scheme
+
+<details>
+
+<summary>View label scheme (2 labels for 1 components)</summary>
+
+| Component | Labels |
+| --- | --- |
+| **`textcat`** | `READ`, `DONTREAD` |
+
+</details>
+
+### Accuracy
+
+| Type | Score |
+| --- | --- |
+| `CATS_SCORE` | 62.58 |
+| `CATS_MICRO_P` | 72.34 |
+| `CATS_MICRO_R` | 72.34 |
+| `CATS_MICRO_F` | 72.34 |
+| `CATS_MACRO_P` | 64.19 |
+| `CATS_MACRO_R` | 61.88 |
+| `CATS_MACRO_F` | 62.58 |
+| `CATS_MACRO_AUC` | 71.27 |
+| `CATS_MACRO_AUC_PER_TYPE` | 0.00 |
+| `TEXTCAT_LOSS` | 1955.34 |

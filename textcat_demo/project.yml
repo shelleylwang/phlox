@@ -1,16 +1,16 @@
-title: "Demo Textcat (Text Classification)"
+title: "PeerRead Textcat (Text Classification)"
 description: "A minimal demo textcat project for spaCy v3. The demo data comes from the [tutorials/textcat_docs_issues](https://github.com/explosion/projects/tree/v3/tutorials/textcat_docs_issues) project."
 # Variables can be referenced across the project.yml using ${vars.var_name}
 vars:
-  name: "textcat_demo"
+  name: "PeerRead_textcat"
   # Supported languages: all except ja, ko, th, vi, and zh, which would require
   # custom tokenizer settings in config.cfg
   lang: "en"
   # Set your GPU ID, -1 is CPU
   gpu_id: -1
   version: "0.0.0"
-  train: "docs_issues_training.jsonl"
-  dev: "docs_issues_eval.jsonl"
+  train: "train_data.jsonl"
+  dev: "test_data.jsonl"
   config: "config.cfg"
 
 # These are the directories that the project needs. The project CLI will make
@@ -21,9 +21,9 @@ directories: ["assets", "corpus", "configs", "training", "scripts", "packages"]
 # them with the project, so they won't have to be downloaded.
 assets:
   - dest: "assets/${vars.train}"
-    description: "Demo training data"
+    description: "PeerRead training data"
   - dest: "assets/${vars.dev}"
-    description: "Demo development data"
+    description: "PeerRead development data"
 
 # Workflows are sequences of commands (see below) executed in order. You can
 # run them via "spacy project run [workflow]". If a commands's inputs/outputs

@@ -1,0 +1,61 @@
+{
+  "lang":"en",
+  "name":"PeerRead_textcat",
+  "version":"0.0.0",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_version":">=3.7.5,<3.8.0",
+  "spacy_git_version":"a6d0fc360",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":null
+  },
+  "labels":{
+    "textcat":[
+      "READ",
+      "DONTREAD"
+    ]
+  },
+  "pipeline":[
+    "textcat"
+  ],
+  "components":[
+    "textcat"
+  ],
+  "disabled":[
+
+  ],
+  "performance":{
+    "cats_score":0.6258420086,
+    "cats_score_desc":"macro F",
+    "cats_micro_p":0.7234042553,
+    "cats_micro_r":0.7234042553,
+    "cats_micro_f":0.7234042553,
+    "cats_macro_p":0.6418918919,
+    "cats_macro_r":0.6187782805,
+    "cats_macro_f":0.6258420086,
+    "cats_macro_auc":0.7126696833,
+    "cats_f_per_type":{
+      "READ":{
+        "p":0.7837837838,
+        "r":0.8529411765,
+        "f":0.8169014085
+      },
+      "DONTREAD":{
+        "p":0.5,
+        "r":0.3846153846,
+        "f":0.4347826087
+      }
+    },
+    "cats_macro_auc_per_type":0.0,
+    "textcat_loss":19.5533551247
+  },
+  "requirements":[
+
+  ]
+}
